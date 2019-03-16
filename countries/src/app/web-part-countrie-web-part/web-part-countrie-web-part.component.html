@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>Listado de Paises America.</h1>
+    <hr/>
+    <table class="table table-hover">
+      <tr *ngFor="let reg of service.list">
+        <td><button class="btn btn-sm btn-info" (click)="open(reg.name,reg.currencies[0]['name'],reg.alpha3Code,reg.languages[0]['name'], countriesModal)"><i class="fa fa-pencil" ></i></button></td>
+        <td>
+          <img src="https://restcountries.eu/data/{{reg.alpha3Code | lowercase}}.svg" alt=""  class="img-responsive" style="height:20px;">
+        </td>
+        <td (click)="open(reg.name,reg.currencies[0]['name'],reg.alpha3Code,reg.languages[0]['name'], countriesModal)" class="text-primary">{{reg.name}}</td>
+        <td>{{reg.alpha3Code | lowercase}}</td>
+        <td>{{reg.currencies[0]["symbol"]}}</td>
+        <td>{{reg.currencies[0]["name"]}}</td>
+        <td>{{reg.languages[0]["name"]}}</td>
+        <td>{{reg.languages[0]["iso639_1"]}}</td>
+      </tr>
+  
+    </table>
+    <ng-template #countriesModal let-modal >
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">
+          <img src="https://restcountries.eu/data/{{alpha3Code | lowercase}}.svg" alt=""  class="img-responsive" style="height:20px;"> 
+          {{name}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <p>Currencies: <label for="dateOfBirth">{{currenciesName}}</label></p>
+            <p>Language: <label for="dateOfBirth">{{languages}}</label></p>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">cerrar</button>
+      </div>
+    </ng-template>
