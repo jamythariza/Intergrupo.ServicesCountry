@@ -1,0 +1,14 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.8.0",
+    "libraryName": "countries-spfx",
+    "libraryId": "d1199d67-ac03-4264-8f89-92830a6ca4ad",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "countries-spfx",
+    "framework": "none",
+    "isCreatingSolution": true,
+    "isDomainIsolated": true,
+    "componentType": "webpart"
+  }
+}
